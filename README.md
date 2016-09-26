@@ -46,8 +46,8 @@ This is an example using the MariaDB connector.
 
 ## Connector
 
-MariaDB/MySQL - https://npmjs.org/spawl-mariadb
-MongoDB - https://npmjs.org/spawl-mongodb
+* MariaDB/MySQL - https://npmjs.org/spawl-mariadb
+* MongoDB - https://npmjs.org/spawl-mongodb
 
 ## Keep In Touch
 
