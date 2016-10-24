@@ -4,6 +4,37 @@
 // Date: 2015-09-23
 // Location: Curitiba, Brasil
 
+// Adds the possibility of a .format() on String.
+String.prototype.format = function()
+{
+   var content = this;
+   for (var i=0; i < arguments.length; i++)
+   {
+        var replacement = '{' + i + '}';
+        content = content.replace(replacement, arguments[i]);
+   }
+   return content;
+};
+
+// The best way to verify if a variable is filled.
+var _filled = function(value){
+  if (value !== null && value !== undefined) {
+    if (typeof value === "string" && value !== "") return true;
+    if (typeof value === "function") return true;
+    if (typeof value === "boolean" && (value === true || value === false)) return true;
+    if (typeof value === "number") return true;
+    if (typeof value === "object") {
+      if (value.hasOwnProperty("length") && value.length > 0) return true;
+      var count = 0;
+      for (var prop in value) {
+        count++;
+      }
+      if (count > 0) return true;
+    }
+  }
+  return false;
+};
+
 var SPAWL = function(connector){
   if (connector === undefined) {
     console.log("No connector defined.");
