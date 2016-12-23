@@ -54,11 +54,8 @@ var SPAWL = function(connector){
     }
 
     spawlObj.spawlConnector.get(entity, fields, filter, order, page, size, function(size, rows){
-      if (size > 0) {
-        callback(size, rows);
-      } else {
-        callback(0);
-      }
+      if (size > 0) return callback(size, rows);
+      callback(0);
     });
   };
 
