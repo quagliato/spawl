@@ -107,6 +107,22 @@ var SPAWL = function(connector){
     });
   };
 
+  /*
+   * 2017-03-03, Curitiba - Brazil
+   * Author: Eduardo Quagliato<eduardo@quagliato.me>
+   * Description: counts records without processing it.
+   */
+  this.count = function(entity, filter, callback){
+    if (spawlObj.spawlConnector === undefined) {
+      throw new Exception("No connector defined.");
+    }
+
+    spawlObj.spawlConnector.count(entity, filter, function(err, count){
+      if (err) return callback(-1);
+      callback(count);
+    });
+  };
+
   return this;
 };
 
